@@ -12,7 +12,7 @@ export default new Vuex.Store({
   },
   mutations: {
     async GET_CATEGORIES(state) {
-      await axios.get(`http://localhost:3000/get_all_categories`).then(res => {
+      await axios.get(`https://still-fortress-67516.herokuapp.com:3000/get_all_categories`).then(res => {
         console.log(res)
         let filterCategories = res.data.response.filter((valorActual, indiceActual, arreglo) => {
           return arreglo.findIndex(valorDelArreglo => JSON.stringify(valorDelArreglo) === JSON.stringify(valorActual)) === indiceActual
@@ -21,7 +21,7 @@ export default new Vuex.Store({
       })
     },
     async GET_PRODUCTS(state, page) {
-      await axios.get(`http://localhost:3000/products/`, {
+      await axios.get(`https://still-fortress-67516.herokuapp.com:3000/products/`, {
         params: {
           page: page,
           search: ""
@@ -35,7 +35,7 @@ export default new Vuex.Store({
       });
     },
     async GET_SEARCH_PRODUCTS(state, search) {
-      await axios.get(`http://localhost:3000/products/`, {
+      await axios.get(`https://still-fortress-67516.herokuapp.com:3000/products/`, {
         params: {
           page: 1,
           search: search
@@ -48,7 +48,7 @@ export default new Vuex.Store({
       });
     },
     async GET_SEARCH_CATEGORY(state, category) {
-      await axios.get(`http://localhost:3000/products/`, {
+      await axios.get(`https://still-fortress-67516.herokuapp.com:3000/products/`, {
         params: {
           page: 1,
           category: category
@@ -61,7 +61,7 @@ export default new Vuex.Store({
       });
     },
     async GET_SORT_PRODUCTS(state, sort) {
-      await axios.get(`http://localhost:3000/products/`, {
+      await axios.get(`https://still-fortress-67516.herokuapp.com:3000/products/`, {
         params: {
           page: 1,
           search: "",
