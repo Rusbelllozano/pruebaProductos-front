@@ -14,7 +14,7 @@ export default new Vuex.Store({
   },
   mutations: {
     async GET_CATEGORIES(state) {
-      await axios.get(`http://localhost:3000/get_all_categories`).then(res => {
+      await axios.get(`https://still-fortress-67516.herokuapp.com/get_all_categories`).then(res => {
         let filterCategories = res.data.response.filter((valorActual, indiceActual, arreglo) => {
           return arreglo.findIndex(valorDelArreglo => JSON.stringify(valorDelArreglo) === JSON.stringify(valorActual)) === indiceActual
         });
@@ -43,7 +43,7 @@ export default new Vuex.Store({
       }
 
       await axios.
-        get(`http://localhost:3000/products/`, { params })
+        get(`https://still-fortress-67516.herokuapp.com/products/`, { params })
         .then(
           res => {
             state.Products = res.data.products;
